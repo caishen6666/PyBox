@@ -29,12 +29,11 @@ android.permissions = INTERNET
 #icon.filename = %(source.dir)s/assets/icon.png
 #presplash.filename = %(source.dir)s/assets/presplash.png
 
-# SDK / NDK / Ant 位置（build_apk.sh 会自动准备到 .build-tools/，已存在则跳过）
-android.sdk_path = .build-tools/android-sdk
-android.ndk_path = .build-tools/android-ndk-r25b
-android.ant_path = .build-tools/apache-ant-1.10.18
-# SDK 组件由脚本预先安装，跳过 sdkmanager 在线更新（离线/受限网络必需）
-android.skip_update = True
+# SDK / NDK 由 buildozer 在构建时自动下载到 ~/.buildozer/（CI 环境）
+# android.sdk_path =
+# android.ndk_path =
+# android.ant_path =
+# android.skip_update = False
 
 #
 # Buildozer 执行配置
