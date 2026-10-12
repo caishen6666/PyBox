@@ -16,9 +16,9 @@ orientation = portrait
 fullscreen = 0
 android.allow_backup = True
 
-# Android 版本：目标 API 34，最低支持 Android 7.0 (API 24)
+# Android 版本：目标 API 34，最低支持 Android 8.0 (API 26，grp 模块需要)
 android.api = 34
-android.minapi = 24
+android.minapi = 26
 android.ndk = 25b
 android.archs = arm64-v8a
 
