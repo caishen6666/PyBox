@@ -27,6 +27,19 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython==0.29.36
 
+      # libffi 3.4.2 (p4a recipe) 与 autoconf 2.72 不兼容（LT_SYS_SYMBOL_USCORE 报错），改用 2.71
+      - name: Install autoconf 2.71
+        run: |
+          cd /tmp
+          curl -sL -o autoconf.tar.gz https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz
+          tar xzf autoconf.tar.gz
+          cd autoconf-2.71
+          ./configure --prefix=$HOME/autoconf-2.71 > /dev/null
+          make -j2 > /dev/null
+          make install > /dev/null
+          echo "$HOME/autoconf-2.71/bin" >> $GITHUB_PATH
+          $HOME/autoconf-2.71/bin/autoconf --version | head -1
+
       - name: Build APK
         run: |
           yes | buildozer android debug || buildozer android debug
